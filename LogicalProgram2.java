@@ -15,7 +15,9 @@ public class LogicalProgram2 {
         System.out.println("Total Number of Notes are :" + total);
 
         System.out.println("Enter date, month and year:");
-        logicalProgram.dayOfweek(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+        dayOfweek(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+
+        temperatureconversion();
 
     }
 
@@ -46,6 +48,32 @@ public class LogicalProgram2 {
 
         String DaysArray[] = {"Sunday ", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
         System.out.println(DaysArray[d0]);
+    }
+
+    public  static void temperatureconversion(){
+
+        int fahrenheit,celsius;
+        System.out.println("Please Enter the Your Choice 1.Celsius or 2.Fahrenheit");
+        int choice = scanner.nextInt();
+
+        switch(choice)
+        {
+            case 1:
+
+                System.out.println("Enter the temperature in Fahrenheit:");
+                fahrenheit = scanner.nextInt();
+                celsius = (fahrenheit - 32 ) * 5 / 9;
+                System.out.println("The temperature in Celsius is :" + celsius);
+                break;
+
+            case 2:
+
+                System.out.println("Enter the temperature in Celsius:");
+                celsius = scanner.nextInt();
+                fahrenheit = ( celsius * 9 / 5 ) + 32 ;
+                System.out.println("The temperature in Fahrenheit is :" + fahrenheit);
+                break;
+        }
     }
 
 }
