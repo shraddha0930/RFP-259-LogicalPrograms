@@ -10,17 +10,34 @@ public class LogicalProgram2 {
 
 
     public static void main(String[] args) {
+        System.out.print("Enter the option: ");
+        int option = scanner.nextInt();
+
         LogicalProgram2 logicalProgram = new LogicalProgram2();
-        logicalProgram.vendingmachine(scanner.nextInt(), notes);
-        System.out.println("Total Number of Notes are :" + total);
 
-        System.out.println("Enter date, month and year:");
-        dayOfweek(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+        switch (option){
+            case 1:
+                logicalProgram.vendingmachine(scanner.nextInt(), notes);
+                System.out.println("Total Number of Notes are :" + total);
+                break;
+            case 2:
+                System.out.println("Enter date, month and year:");
+                dayOfweek(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+                break;
+            case 3:
+                temperatureconversion();
+                break;
+            case 4:
+                System.out.println("Please Enter the Principal Amount,Years and Rate :");
+                monthlypayment(scanner.nextDouble(), scanner.nextDouble(), scanner.nextDouble());
+                break;
+            case 5:
+                sqrt();
+                break;
+            default:
+                System.out.println("Invalid option!");
 
-        temperatureconversion();
-
-        System.out.println("Please Enter the Principal Amount,Years and Rate :");
-        monthlypayment(scanner.nextDouble(), scanner.nextDouble(), scanner.nextDouble());
+        }
 
     }
 
@@ -86,6 +103,17 @@ public class LogicalProgram2 {
         double MonthPayment = (P * r )/ (1 - (Math.pow((1+r), (-n)) ));
         System.out.println(" The Payment Per Month is : " + MonthPayment);
 
+    }
+
+    public static void sqrt(){
+        double c = scanner.nextDouble();
+        double epsilon = 1e-15;    // relative error tolerance
+        double t = c;              // estimate of the square root of c
+
+        while (Math.abs(t - c/t) > epsilon*t) {
+            t = (c/t + t) / 2.0;
+        }
+        System.out.println(t);
     }
 
 }
