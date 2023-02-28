@@ -19,6 +19,9 @@ public class LogicalProgram2 {
 
         temperatureconversion();
 
+        System.out.println("Please Enter the Principal Amount,Years and Rate :");
+        monthlypayment(scanner.nextDouble(), scanner.nextDouble(), scanner.nextDouble());
+
     }
 
     public int vendingmachine(int money, int[] notes) {
@@ -74,6 +77,15 @@ public class LogicalProgram2 {
                 System.out.println("The temperature in Fahrenheit is :" + fahrenheit);
                 break;
         }
+    }
+
+    public static void monthlypayment(double P, double Y,double R){
+        double n = 12 * Y;
+        double r = R / ( 12 * 100 );
+
+        double MonthPayment = (P * r )/ (1 - (Math.pow((1+r), (-n)) ));
+        System.out.println(" The Payment Per Month is : " + MonthPayment);
+
     }
 
 }
