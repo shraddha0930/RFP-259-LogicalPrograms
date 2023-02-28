@@ -11,6 +11,7 @@ public class LogicalProgram {
         LogicalProgram logicalProgram = new LogicalProgram();
         logicalProgram.fibonacciseries();
         logicalProgram.perfectnumber();
+        logicalProgram.primenumber();
     }
 
     public void fibonacciseries() {
@@ -47,6 +48,30 @@ public class LogicalProgram {
         } else
             System.out.println(n + " is not a perfect number.");
 
+    }
+
+    public void primenumber(){
+        System.out.println("Enter the value of n:");
+        int n = scanner.nextInt();
+
+        int count = 0;
+        int number = 1;
+        while (count < n) {
+            boolean isPrime = true;
+            int initialValue = 2;
+            while (initialValue <= number / 2) {
+                if (number % initialValue == 0) {
+                    isPrime = false;
+                    break;
+                }
+                initialValue++;
+            }
+            if (isPrime) {
+                System.out.println(number);
+                count++;
+            }
+            number++;
+        }
     }
 
 }
