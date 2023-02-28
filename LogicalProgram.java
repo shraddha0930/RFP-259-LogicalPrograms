@@ -1,18 +1,37 @@
 package assignments.LogicalPrograms;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LogicalProgram {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Welcome to Logical program");
+
+        System.out.print("Enter the option: ");
+        int option = scanner.nextInt();
         LogicalProgram logicalProgram = new LogicalProgram();
-        logicalProgram.fibonacciseries();
-        logicalProgram.perfectnumber();
-        logicalProgram.primenumber();
-        logicalProgram.reversegivennumber();
+        switch (option){
+            case 1:
+                logicalProgram.fibonacciseries();
+                break;
+            case 2:
+                logicalProgram.perfectnumber();
+                break;
+            case 3:
+                logicalProgram.primenumber();
+                break;
+            case 4:
+                logicalProgram.reversegivennumber();
+                break;
+            case 5:
+                logicalProgram.couponnumbers();
+                break;
+            default:
+                System.out.println("Invalid option!");
+        }
     }
 
     public void fibonacciseries() {
@@ -89,6 +108,42 @@ public class LogicalProgram {
         }
 
         System.out.println("Reverse of number is: "+reversenum);
+    }
+
+    public void couponnumbers(){
+        // iterate the loop until get N distinct number
+        System.out.println("Enter a number:");
+        int number = scanner.nextInt();
+        int couponCount = 0;
+        int arrIndex = 0;
+        int loopCount = 0;
+        int[] record = new int[number];//to check no is already exist or not
+        while (couponCount < number) {
+            int random = LogicalProgram.generateRandomNumber(number);
+            System.out.println(random);
+            if (!isExists(record, random)) {
+                couponCount++;
+                record[arrIndex] = random;
+                arrIndex++;
+            }
+            loopCount++;
+        }
+
+        System.out.println("total loop count : " + loopCount);
+        System.out.println("distinct coupons : " + Arrays.toString(record));
+    }
+    private boolean isExists(int[] record, int random) {
+        for (int i : record) {
+            if (i == random) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    private static int generateRandomNumber(int number) {
+
+        return (int) (Math.floor(Math.random() * 100)) % number + 1;
     }
 
 }
