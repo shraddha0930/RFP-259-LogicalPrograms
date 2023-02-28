@@ -12,6 +12,7 @@ public class LogicalProgram {
         logicalProgram.fibonacciseries();
         logicalProgram.perfectnumber();
         logicalProgram.primenumber();
+        logicalProgram.reversegivennumber();
     }
 
     public void fibonacciseries() {
@@ -72,6 +73,22 @@ public class LogicalProgram {
             }
             number++;
         }
+    }
+
+    public void reversegivennumber(){
+
+        System.out.println("Enter the number: ");
+        int n = scanner.nextInt();
+        int reversenum =0, temp = 0;
+
+        while( n > 0 )
+        {
+            temp = n % 10;
+            reversenum = reversenum * 10 + temp;
+            n = n/10;
+        }
+
+        System.out.println("Reverse of number is: "+reversenum);
     }
 
 }
