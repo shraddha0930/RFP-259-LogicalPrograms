@@ -29,6 +29,9 @@ public class LogicalProgram {
             case 5:
                 logicalProgram.couponnumbers();
                 break;
+            case 6:
+                logicalProgram.stopwatch();
+                break;
             default:
                 System.out.println("Invalid option!");
         }
@@ -144,6 +147,19 @@ public class LogicalProgram {
     private static int generateRandomNumber(int number) {
 
         return (int) (Math.floor(Math.random() * 100)) % number + 1;
+    }
+
+    public void stopwatch(){
+        long start,end;
+        double time;
+        System.out.println("Type any number to start the stopwatch");
+        start =scanner.nextLong();
+        start=System.currentTimeMillis();
+        System.out.println("Type any number to stop the stopwatch");
+        end=scanner.nextLong();
+        end=System.currentTimeMillis();
+        time=(end-start)/1000.0;//to convert in sec
+        System.out.println(time);
     }
 
 }
