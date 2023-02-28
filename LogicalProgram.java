@@ -10,8 +10,7 @@ public class LogicalProgram {
         System.out.println("Welcome to Logical program");
         LogicalProgram logicalProgram = new LogicalProgram();
         logicalProgram.fibonacciseries();
-
-
+        logicalProgram.perfectnumber();
     }
 
     public void fibonacciseries() {
@@ -28,6 +27,25 @@ public class LogicalProgram {
             firstTerm = secondTerm;
             secondTerm = nextTerm;
         }
+
+    }
+
+    public void perfectnumber() {
+        System.out.print("Enter the number: ");
+        int n = scanner.nextInt();
+        int i = 1;
+        int Result  = 0;
+
+        for (i = 1; i <= n/2; i++) {
+            if (n % i == 0) {
+                System.out.println(Result );
+                Result  = Result  + i;
+            }
+        }
+        if (Result  == n) {
+            System.out.println(n + " is a perfect number.");
+        } else
+            System.out.println(n + " is not a perfect number.");
 
     }
 
