@@ -34,6 +34,9 @@ public class LogicalProgram2 {
             case 5:
                 sqrt();
                 break;
+            case 6:
+                toBinary(scanner.nextInt());
+                break;
             default:
                 System.out.println("Invalid option!");
 
@@ -114,6 +117,36 @@ public class LogicalProgram2 {
             t = (c/t + t) / 2.0;
         }
         System.out.println(t);
+    }
+
+    public static int[] toBinary(int d) {
+
+        String sbinary = "";
+        while (d != 0) {
+            sbinary = (d % 2) + sbinary;
+            d /= 2;
+        }
+        while (sbinary.length() % 4 != 0) {
+            sbinary = 0 + sbinary;
+        }
+        return stringToIntArray(sbinary);
+    }
+    public static int[] stringToIntArray(String sbinary) {
+        int[] binary = new int[sbinary.length()];
+        for (int i = 0; i < binary.length; i++) {
+            binary[i] = sbinary.charAt(i) - 48;
+        }
+        return binary;
+    }
+    public static int toDecimal(int[] binary) {
+        int dec = 0, j = 0;
+        for (int i = binary.length - 1; i >= 0; i--) {
+            if (binary[i] == 1) {
+                dec = dec + (int) Math.pow(2, j);
+            }
+            j++;
+        }
+        return dec;
     }
 
 }
